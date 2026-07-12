@@ -27,6 +27,9 @@ Route::group([
     Route::apiResource('orders', \App\Http\Controllers\Api\OrderController::class);
     Route::apiResource('attendances', \App\Http\Controllers\Api\AttendanceController::class);
 
+    Route::get('settings', [\App\Http\Controllers\Api\SettingController::class, 'index']);
+    Route::post('settings', [\App\Http\Controllers\Api\SettingController::class, 'update']);
+
     Route::get('reports/summary', [\App\Http\Controllers\Api\ReportController::class, 'summary']);
     Route::get('reports/archives', [\App\Http\Controllers\Api\ReportController::class, 'archives']);
 });

@@ -15,6 +15,7 @@ import Orders from './Pages/Orders';
 import Attendances from './Pages/Attendances';
 import DailyArchives from './Pages/DailyArchives';
 import ProductFormBuilder from './Pages/ProductFormBuilder';
+import SettingsConfig from './Pages/SettingsConfig';
 
 // Global Axios Interceptor Setup
 const AxiosInterceptorSetup = ({ children }) => {
@@ -73,6 +74,7 @@ const App = () => {
                                 <Route path="products" element={<Products />} />
                                 <Route path="attendances" element={<Attendances />} />
                                 <Route path="archives" element={<DailyArchives />} />
+                                <Route path="settings" element={<SettingsConfig />} />
                             </Routes>
                         </AdminLayout>
                     } />

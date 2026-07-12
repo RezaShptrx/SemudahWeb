@@ -48,17 +48,6 @@
                 <a href="{{ route('landing.index') }}#keunggulan" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="nav-features">Keunggulan</a>
                 <a href="{{ route('landing.catalog') }}" class="{{ request()->routeIs('landing.catalog') ? 'text-blue-600 dark:text-cyan-400 font-semibold hover:text-blue-700 dark:hover:text-cyan-300' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400' }} transition-colors" id="nav-catalog">Katalog</a>
                 <a href="{{ route('landing.index') }}#faq" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="nav-faq">FAQ</a>
-                <a href="{{ url('/admin') }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="nav-absensi">Absensi Penjaga</a>
-
-                @auth
-                    <a href="{{ url('/admin') }}" class="bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/80 px-5 py-2.5 rounded-xl font-semibold transition-colors" id="btn-admin-dashboard">
-                        Dashboard
-                    </a>
-                @else
-                    <a href="{{ url('/admin/login') }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 font-semibold transition-colors" id="btn-admin-login">
-                        Admin Login
-                    </a>
-                @endauth
                 <a href="https://wa.me/6281234567890" target="_blank" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-2.5 rounded-xl font-semibold transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:-translate-y-0.5" id="btn-contact-us">
                     Contact Us
                 </a>
@@ -86,16 +75,6 @@
                     <a href="{{ route('landing.index') }}#keunggulan" @click="open = false" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="mobile-nav-features">Keunggulan</a>
                     <a href="{{ route('landing.catalog') }}" @click="open = false" class="{{ request()->routeIs('landing.catalog') ? 'text-blue-600 dark:text-cyan-400 font-semibold hover:text-blue-700 dark:hover:text-cyan-300' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400' }} transition-colors" id="mobile-nav-catalog">Katalog</a>
                     <a href="{{ route('landing.index') }}#faq" @click="open = false" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="mobile-nav-faq">FAQ</a>
-                    <a href="{{ url('/admin') }}" @click="open = false" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="mobile-nav-absensi">Absensi Penjaga</a>
-                    @auth
-                        <a href="{{ url('/admin') }}" @click="open = false" class="bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-center py-2.5 rounded-xl font-semibold transition-colors" id="mobile-btn-admin-dashboard">
-                            Dashboard
-                        </a>
-                    @else
-                        <a href="{{ url('/admin/login') }}" @click="open = false" class="text-gray-600 dark:text-gray-300 font-semibold hover:text-blue-600 dark:hover:text-cyan-400 transition-colors" id="mobile-btn-admin-login">
-                            Admin Login
-                        </a>
-                    @endauth
                     <a href="https://wa.me/6281234567890" target="_blank" class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-center py-2.5 rounded-xl font-semibold transition-colors" id="mobile-btn-contact-us">
                         Contact Us
                     </a>

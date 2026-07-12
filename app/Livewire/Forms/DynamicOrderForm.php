@@ -190,13 +190,20 @@ class DynamicOrderForm extends Component
             }
         }
 
+        // Tambahkan QRIS Admin Fee jika dipilih
+        $finalTotalPrice = $orderData['total_price'];
+        if (strtolower($this->selectedPaymentMethod) === 'qris') {
+            $qrisFee = (float) (\App\Models\Setting::where('key', 'payment_qris_fee')->value('value') ?? 0);
+            $finalTotalPrice += $qrisFee;
+        }
+
         try {
             $order = app(\App\Services\OrderService::class)->createOrder(
                 customerName: $this->customerName ?: 'Guest',
                 customerEmail: $this->customerEmail ?: 'guest@example.com',
                 customerPhone: $this->customerPhone,
                 items: $orderData['items'],
-                totalPrice: $orderData['total_price'],
+                totalPrice: $finalTotalPrice,
                 paymentMethod: $orderData['payment_method'],
                 notes: $this->notes
             );

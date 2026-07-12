@@ -95,12 +95,18 @@ class ReviewOrderForm extends Component
     {
         $this->validate();
 
+        $finalTotalPrice = $this->totalPrice;
+        if (strtolower($this->paymentMethod) === 'qris') {
+            $qrisFee = (float) (\App\Models\Setting::where('key', 'payment_qris_fee')->value('value') ?? 0);
+            $finalTotalPrice += $qrisFee;
+        }
+
         $order = app(OrderService::class)->createOrder(
             customerName: $this->customerName,
             customerEmail: $this->customerEmail,
             customerPhone: $this->customerPhone,
             items: $this->orderData['items'] ?? [],
-            totalPrice: $this->orderData['subtotal'] ?? 0,
+            totalPrice: $finalTotalPrice,
             paymentMethod: $this->paymentMethod,
             notes: $this->notes,
             promoCode: $this->appliedPromo,

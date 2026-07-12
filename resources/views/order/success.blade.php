@@ -1,8 +1,57 @@
 <x-layouts.app>
     <x-slot:title>
-        Pemesanan Berhasil - SEMUDAH
+        @if($order->payment_status === \App\Enums\PaymentStatus::PENDING && $order->payment_method->value === 'qris')
+            Menunggu Pembayaran QRIS - SEMUDAH
+        @else
+            Pemesanan Berhasil - SEMUDAH
+        @endif
     </x-slot:title>
 
+    @if($order->payment_status === \App\Enums\PaymentStatus::PENDING && $order->payment_method->value === 'qris')
+    <!-- HALAMAN KHUSUS PEMBAYARAN QRIS -->
+    <div class="max-w-2xl mx-auto px-6 py-12 space-y-8 text-center">
+        <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm space-y-8">
+            
+            <div class="space-y-2">
+                <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Selesaikan Pembayaran</h1>
+                <p class="text-gray-500">Pindai kode QRIS di bawah ini dengan aplikasi E-Wallet atau M-Banking Anda (Gopay, OVO, Dana, dll).</p>
+            </div>
+
+            <div class="bg-cyan-50/50 rounded-3xl p-8 inline-block border border-cyan-100">
+                @php
+                    $qrisImage = \App\Models\Setting::where('key', 'payment_qris_image')->value('value');
+                @endphp
+                <div class="w-64 h-64 bg-white border-2 border-gray-150 rounded-2xl flex items-center justify-center p-4 shadow-md mx-auto relative overflow-hidden">
+                    <img src="{{ $qrisImage ? asset($qrisImage) : 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://semudah.local/pay/' . $order->order_number }}" 
+                         alt="QRIS Code" 
+                         class="w-full h-full object-contain">
+                </div>
+                <div class="mt-6 space-y-1">
+                    <p class="text-sm text-cyan-700 font-semibold uppercase tracking-wider">Total Pembayaran</p>
+                    <p class="text-3xl font-extrabold text-slate-900">Rp{{ number_format($order->final_price, 0, ',', '.') }}</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 max-w-sm mx-auto">
+                <a href="{{ route('order.tracking') }}?q={{ $order->order_number }}" 
+                   class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl transition w-full flex items-center justify-center gap-2 shadow-md shadow-blue-100" 
+                   id="btn-track-success-page">
+                   Saya Sudah Bayar
+                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                   </svg>
+                </a>
+                
+                <a href="https://wa.me/{{ preg_replace('/^0/', '62', \App\Models\Setting::where('key', 'contact_whatsapp')->value('value') ?? '6281234567890') }}?text=Halo%20SEMUDAH,%20saya%20sudah%20memesan%20dengan%20nomor%20pesanan%20{{ $order->order_number }}%20dan%20sudah%20membayar%20via%20QRIS.%20Mohon%20verifikasi%20pembayaran%20saya." 
+                   target="_blank" 
+                   class="block text-gray-500 hover:text-emerald-600 text-sm font-semibold transition underline decoration-dashed underline-offset-4">
+                    Konfirmasi Manual via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+    @else
+    <!-- HALAMAN SUCCESS BIASA -->
     <div class="max-w-3xl mx-auto px-6 py-12 space-y-8">
         
         <!-- Status Card -->
@@ -57,26 +106,6 @@
                     };
                 </script>
                 @endpush
-            @elseif($order->payment_method->value === 'qris')
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <!-- QRIS Placeholder Image -->
-                    <div class="w-48 h-48 bg-gray-50 border-2 border-gray-150 rounded-2xl flex items-center justify-center p-4 shadow-sm relative group overflow-hidden">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://semudah.local/pay/{{ $order->order_number }}" 
-                             alt="QRIS Code" 
-                             class="w-full h-full object-contain">
-                    </div>
-                    <div class="space-y-3 flex-1">
-                        <span class="bg-cyan-50 text-cyan-600 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">QRIS OTOMATIS</span>
-                        <h4 class="font-bold text-slate-800 text-lg">Pindai QR Kode di samping</h4>
-                        <ol class="text-xs text-gray-400 space-y-1.5 list-decimal pl-4 leading-relaxed">
-                            <li>Buka aplikasi pembayaran digital pilihan Anda (Gopay, OVO, ShopeePay, M-Banking, dll).</li>
-                            <li>Pilih opsi <strong>Scan / Bayar</strong>.</li>
-                            <li>Arahkan kamera ke QR Kode tersebut.</li>
-                            <li>Masukkan nominal sebesar <strong class="text-blue-600">Rp{{ number_format($order->final_price, 0, ',', '.') }}</strong>.</li>
-                            <li>Setelah pembayaran sukses, sistem akan memperbarui status pelacakan secara otomatis.</li>
-                        </ol>
-                    </div>
-                </div>
             @else
                 <div class="space-y-3">
                     <span class="bg-amber-50 text-amber-600 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">BAYAR TUNAI DI KASIR</span>
@@ -130,13 +159,13 @@
                 Lacak Status Pesanan
             </a>
             
-            <a href="https://wa.me/6281234567890?text=Halo%20SEMUDAH,%20saya%20sudah%20memesan%20dengan%20nomor%20pesanan%20{{ $order->order_number }}.%20Mohon%20verifikasi%20pembayaran%20saya." 
+            <a href="https://wa.me/{{ preg_replace('/^0/', '62', \App\Models\Setting::where('key', 'contact_whatsapp')->value('value') ?? '6281234567890') }}?text=Halo%20SEMUDAH,%20saya%20sudah%20memesan%20dengan%20nomor%20pesanan%20{{ $order->order_number }}.%20Mohon%20verifikasi%20pembayaran%20saya." 
                target="_blank" 
                class="border-2 border-emerald-500 text-emerald-500 hover:bg-emerald-50 font-bold px-8 py-3 rounded-2xl transition w-full sm:w-auto text-center cursor-pointer"
                id="btn-whatsapp-confirm">
                 Konfirmasi via WhatsApp
             </a>
         </div>
-
     </div>
+    @endif
 </x-layouts.app>

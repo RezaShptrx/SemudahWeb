@@ -47,6 +47,7 @@ const AdminLayout = ({ children }) => {
         { name: 'Promo Codes', path: '/admin/promo-codes', icon: Tag, adminOnly: true },
         { name: 'Log Absensi', path: '/admin/attendances', icon: UserCheck },
         { name: 'Arsip Harian', path: '/admin/archives', icon: Archive, adminOnly: true },
+        { name: 'Pengaturan', path: '/admin/settings', icon: Settings, adminOnly: true },
     ].filter(item => !item.adminOnly || isAdmin);
 
     return (

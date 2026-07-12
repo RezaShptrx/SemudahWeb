@@ -173,8 +173,16 @@
                             </svg>
                         </div>
                         <div>
+                            @php
+                                $qrisFee = (float) (\App\Models\Setting::where('key', 'payment_qris_fee')->value('value') ?? 0);
+                            @endphp
                             <p class="font-bold text-slate-800 dark:text-white">QRIS / E-Wallet</p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Bayar instan via Gopay, OVO, Dana, dll</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">
+                                Bayar instan via Gopay, OVO, Dana, dll
+                                @if($qrisFee > 0)
+                                    <span class="text-cyan-600 font-semibold block mt-0.5">(+ Biaya Admin Rp{{ number_format($qrisFee, 0, ',', '.') }})</span>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
