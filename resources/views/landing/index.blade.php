@@ -13,11 +13,11 @@
             
             <!-- Left Info -->
             <div class="space-y-6 md:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div class="inline-block px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full text-blue-500 dark:text-cyan-400 text-sm font-semibold tracking-wide flex items-center justify-center lg:justify-start w-fit gap-1.5 border border-blue-100 dark:border-blue-800/50">
+                <div class="inline-flex px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full text-blue-500 dark:text-cyan-400 text-sm font-semibold tracking-wide items-center justify-center lg:justify-start w-fit gap-1.5 border border-blue-100 dark:border-blue-800/50 shadow-[0_0_15px_rgba(59,130,246,0.15)] dark:shadow-[0_0_20px_rgba(34,211,238,0.1)] transition-colors">
                     <x-heroicon-s-sparkles class="w-4 h-4" /> Welcome to SEMUDAH
                 </div>
                 
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tighter text-slate-900 dark:text-white transition-colors">
                     <span class="text-cyan-500 dark:text-cyan-400">Semua Menjadi</span>
                     <br>
                     <span>Mudah</span>
@@ -37,18 +37,19 @@
                 </div>
                 
                 <!-- Stats -->
-                <div class="grid grid-cols-3 gap-6 md:gap-10 pt-10 border-t border-gray-100 dark:border-slate-800 w-full">
-                    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-600 dark:text-cyan-400">500+</h2>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm lg:text-base mt-1 lg:mt-2 font-medium">Pelanggan Puas</p>
+                <div class="grid grid-cols-3 gap-6 md:gap-10 mt-10 p-6 md:p-8 rounded-3xl bg-white/60 dark:bg-slate-800/40 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 shadow-sm w-full transition-colors relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 dark:from-slate-700/20 dark:to-slate-800/5 pointer-events-none"></div>
+                    <div class="flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
+                        <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-blue-400">500+</h2>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs md:text-sm lg:text-base mt-1 lg:mt-2 font-semibold tracking-wide uppercase">Pelanggan Puas</p>
                     </div>
-                    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-600 dark:text-cyan-400">10+</h2>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm lg:text-base mt-1 lg:mt-2 font-medium">Layanan Utama</p>
+                    <div class="flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
+                        <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-blue-400">10+</h2>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs md:text-sm lg:text-base mt-1 lg:mt-2 font-semibold tracking-wide uppercase">Layanan Utama</p>
                     </div>
-                    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-600 dark:text-cyan-400">100%</h2>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm lg:text-base mt-1 lg:mt-2 font-medium">Garansi Mutu</p>
+                    <div class="flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
+                        <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-blue-400">100%</h2>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs md:text-sm lg:text-base mt-1 lg:mt-2 font-semibold tracking-wide uppercase">Garansi Mutu</p>
                     </div>
                 </div>
             </div>
@@ -72,52 +73,52 @@
             
             <div class="text-center max-w-2xl mx-auto space-y-3">
                 <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full text-blue-500 dark:text-cyan-400 text-xs font-semibold tracking-wide border border-blue-100 dark:border-blue-800/50">Mengapa Memilih Kami</div>
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Keunggulan SEMUDAH</h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Keunggulan SEMUDAH</h2>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16">
                 
                 <!-- Card 1 -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition duration-300 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-[0_8px_30px_rgb(6,182,212,0.12)] dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700/50 hover:border-cyan-200 dark:hover:border-cyan-800 hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm ring-4 ring-cyan-50/50 dark:ring-slate-700/30 group-hover:ring-cyan-200/50 dark:group-hover:ring-cyan-900/50">
                         <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
-                    <h3 class="font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Proses Cepat</h3>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Proses Cepat</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed">Setiap pesanan Anda akan segera diproses secara tanggap dan tepat waktu.</p>
                 </div>
                 
                 <!-- Card 2 -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition duration-300 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-[0_8px_30px_rgb(6,182,212,0.12)] dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700/50 hover:border-cyan-200 dark:hover:border-cyan-800 hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm ring-4 ring-cyan-50/50 dark:ring-slate-700/30 group-hover:ring-cyan-200/50 dark:group-hover:ring-cyan-900/50">
                         <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
-                    <h3 class="font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Sangat Berkualitas</h3>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Sangat Berkualitas</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed">Didukung oleh bahan pilihan dan tinta berkualitas untuk menjamin mutu.</p>
                 </div>
                 
                 <!-- Card 3 -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition duration-300 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-[0_8px_30px_rgb(6,182,212,0.12)] dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700/50 hover:border-cyan-200 dark:hover:border-cyan-800 hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm ring-4 ring-cyan-50/50 dark:ring-slate-700/30 group-hover:ring-cyan-200/50 dark:group-hover:ring-cyan-900/50">
                         <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h3 class="font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Harga Bersahabat</h3>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Harga Bersahabat</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed">Tarif yang fleksibel dan terjangkau bagi kalangan siswa maupun instansi.</p>
                 </div>
                 
                 <!-- Card 4 -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition duration-300 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-[0_8px_30px_rgb(6,182,212,0.12)] dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700/50 hover:border-cyan-200 dark:hover:border-cyan-800 hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-slate-700 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:bg-gradient-to-br group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition-all duration-300 shadow-sm ring-4 ring-cyan-50/50 dark:ring-slate-700/30 group-hover:ring-cyan-200/50 dark:group-hover:ring-cyan-900/50">
                         <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h3 class="font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Pelayanan Prima</h3>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 dark:text-gray-100 mt-6 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Pelayanan Prima</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed">Dilayani ramah oleh tim profesional siap konsultasi kebutuhan Anda.</p>
                 </div>
 
@@ -134,63 +135,72 @@
             
             <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
                 <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full text-blue-500 dark:text-cyan-400 text-xs font-semibold tracking-wide border border-blue-100 dark:border-blue-800/50">Testimoni</div>
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Apa Kata Mereka?</h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Apa Kata Mereka?</h2>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Testimoni 1 -->
-                <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700">
-                    <div class="flex gap-1 text-yellow-400 mb-4">
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-300 italic mb-6">"Pengerjaannya cepat dan harganya terjangkau"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-cyan-100 dark:bg-cyan-900 flex items-center justify-center text-cyan-600 dark:text-cyan-300 font-bold">I</div>
-                        <div>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm">Ibnu Abi Ad-Dunya</p>
-                            <p class="text-slate-500 dark:text-slate-400 text-xs">Siswa SMKN 12</p>
+                <div class="bg-gray-50 dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -top-2 -right-2 text-9xl text-gray-200/50 dark:text-slate-700/30 font-serif leading-none group-hover:text-cyan-100 dark:group-hover:text-slate-600/50 transition-colors pointer-events-none">"</div>
+                    <div class="relative z-10">
+                        <div class="flex gap-1 text-yellow-400 mb-4">
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 italic mb-6 leading-relaxed">"Pengerjaannya cepat dan harganya terjangkau"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center text-white font-bold shadow-md shadow-cyan-500/30 ring-2 ring-white dark:ring-slate-800">I</div>
+                            <div>
+                                <p class="font-bold text-slate-900 dark:text-white text-sm">Ibnu Abi Ad-Dunya</p>
+                                <p class="text-slate-500 dark:text-slate-400 text-xs">Siswa SMKN 12</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimoni 2 -->
-                <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700">
-                    <div class="flex gap-1 text-yellow-400 mb-4">
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-300 italic mb-6">"Pelayanan nya sangat bagus dan memuaskan."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">I</div>
-                        <div>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm">Ichsan Riandi Putra</p>
-                            <p class="text-slate-500 dark:text-slate-400 text-xs">Osis SMKN 12</p>
+                <div class="bg-gray-50 dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -top-2 -right-2 text-9xl text-gray-200/50 dark:text-slate-700/30 font-serif leading-none group-hover:text-blue-100 dark:group-hover:text-slate-600/50 transition-colors pointer-events-none">"</div>
+                    <div class="relative z-10">
+                        <div class="flex gap-1 text-yellow-400 mb-4">
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 italic mb-6 leading-relaxed">"Pelayanan nya sangat bagus dan memuaskan."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-blue-400 to-indigo-500 flex items-center justify-center text-white font-bold shadow-md shadow-blue-500/30 ring-2 ring-white dark:ring-slate-800">I</div>
+                            <div>
+                                <p class="font-bold text-slate-900 dark:text-white text-sm">Ichsan Riandi Putra</p>
+                                <p class="text-slate-500 dark:text-slate-400 text-xs">Osis SMKN 12</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimoni 3 -->
-                <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700">
-                    <div class="flex gap-1 text-yellow-400 mb-4">
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                        <x-heroicon-s-star class="w-5 h-5" />
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-300 italic mb-6">"Pengerjaannya sangat terampil"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold">A</div>
-                        <div>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm">Ahmad Fauzan</p>
-                            <p class="text-slate-500 dark:text-slate-400 text-xs">Siswa SMKN 12</p>
+                <div class="bg-gray-50 dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -top-2 -right-2 text-9xl text-gray-200/50 dark:text-slate-700/30 font-serif leading-none group-hover:text-indigo-100 dark:group-hover:text-slate-600/50 transition-colors pointer-events-none">"</div>
+                    <div class="relative z-10">
+                        <div class="flex gap-1 text-yellow-400 mb-4">
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                            <x-heroicon-s-star class="w-5 h-5 drop-shadow-sm" />
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 italic mb-6 leading-relaxed">"Pengerjaannya sangat terampil"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-indigo-400 to-purple-500 flex items-center justify-center text-white font-bold shadow-md shadow-indigo-500/30 ring-2 ring-white dark:ring-slate-800">A</div>
+                            <div>
+                                <p class="font-bold text-slate-900 dark:text-white text-sm">Ahmad Fauzan</p>
+                                <p class="text-slate-500 dark:text-slate-400 text-xs">Siswa SMKN 12</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,59 +215,62 @@
             
             <div class="text-center space-y-3 mb-16">
                 <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full text-blue-500 dark:text-cyan-400 text-xs font-semibold tracking-wide border border-blue-100 dark:border-blue-800/50">FAQ</div>
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Pertanyaan yang Sering Diajukan</h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Pertanyaan yang Sering Diajukan</h2>
             </div>
             
             <!-- Accordion (AlpineJS) -->
             <div class="space-y-4" x-data="{ active: null }">
                 
                 <!-- Q1 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden transition-colors">
+                <div class="rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm" :class="active === 1 ? 'bg-blue-50/50 dark:bg-slate-800 border-blue-200 dark:border-slate-600 ring-1 ring-blue-500/20' : 'bg-white dark:bg-slate-800/60 border-gray-100 dark:border-slate-700/50'">
                     <button 
                         @click="active === 1 ? active = null : active = 1" 
-                        class="w-full text-left px-6 py-5 font-bold text-slate-800 dark:text-gray-100 text-base md:text-lg flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                        class="w-full text-left px-6 py-5 font-bold text-base md:text-lg flex items-center justify-between hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                        :class="active === 1 ? 'text-blue-700 dark:text-cyan-400' : 'text-slate-800 dark:text-gray-100'"
                         id="faq-toggle-1"
                     >
                         <span>Apakah bisa memesan tanpa minimal order?</span>
-                        <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 transition duration-300" :class="{'rotate-180 text-cyan-500': active === 1}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 transition duration-300" :class="active === 1 ? 'rotate-180 text-blue-600 dark:text-cyan-400' : 'text-gray-500 dark:text-gray-400'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 1" x-collapse class="px-6 pb-5 text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed">
+                    <div x-show="active === 1" x-collapse class="px-6 pb-5 text-sm md:text-base leading-relaxed" :class="active === 1 ? 'text-blue-800/80 dark:text-slate-300' : 'text-slate-500 dark:text-slate-400'">
                         Ya, untuk produk custom seperti Mug dan Kaos Sablon, Anda bisa melakukan pemesanan satuan (tanpa minimal order) dengan harga bersahabat.
                     </div>
                 </div>
 
                 <!-- Q2 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden transition-colors">
+                <div class="rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm" :class="active === 2 ? 'bg-blue-50/50 dark:bg-slate-800 border-blue-200 dark:border-slate-600 ring-1 ring-blue-500/20' : 'bg-white dark:bg-slate-800/60 border-gray-100 dark:border-slate-700/50'">
                     <button 
                         @click="active === 2 ? active = null : active = 2" 
-                        class="w-full text-left px-6 py-5 font-bold text-slate-800 dark:text-gray-100 text-base md:text-lg flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                        class="w-full text-left px-6 py-5 font-bold text-base md:text-lg flex items-center justify-between hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                        :class="active === 2 ? 'text-blue-700 dark:text-cyan-400' : 'text-slate-800 dark:text-gray-100'"
                         id="faq-toggle-2"
                     >
                         <span>Berapa lama estimasi pengerjaan pesanan?</span>
-                        <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 transition duration-300" :class="{'rotate-180 text-cyan-500': active === 2}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 transition duration-300" :class="active === 2 ? 'rotate-180 text-blue-600 dark:text-cyan-400' : 'text-gray-500 dark:text-gray-400'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 2" x-collapse class="px-6 pb-5 text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed">
+                    <div x-show="active === 2" x-collapse class="px-6 pb-5 text-sm md:text-base leading-relaxed" :class="active === 2 ? 'text-blue-800/80 dark:text-slate-300' : 'text-slate-500 dark:text-slate-400'">
                         Untuk jasa cetak dokumen biasa dan fotocopy berkisar beberapa menit hingga beberapa jam (tergantung antrean). Untuk produk custom merchandise seperti Kaos dan Mug berkisar 1 - 3 hari kerja setelah desain disetujui.
                     </div>
                 </div>
 
                 <!-- Q3 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden transition-colors">
+                <div class="rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm" :class="active === 3 ? 'bg-blue-50/50 dark:bg-slate-800 border-blue-200 dark:border-slate-600 ring-1 ring-blue-500/20' : 'bg-white dark:bg-slate-800/60 border-gray-100 dark:border-slate-700/50'">
                     <button 
                         @click="active === 3 ? active = null : active = 3" 
-                        class="w-full text-left px-6 py-5 font-bold text-slate-800 dark:text-gray-100 text-base md:text-lg flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                        class="w-full text-left px-6 py-5 font-bold text-base md:text-lg flex items-center justify-between hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                        :class="active === 3 ? 'text-blue-700 dark:text-cyan-400' : 'text-slate-800 dark:text-gray-100'"
                         id="faq-toggle-3"
                     >
                         <span>Bagaimana cara melakukan pembayaran?</span>
-                        <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 transition duration-300" :class="{'rotate-180 text-cyan-500': active === 3}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 transition duration-300" :class="active === 3 ? 'rotate-180 text-blue-600 dark:text-cyan-400' : 'text-gray-500 dark:text-gray-400'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 3" x-collapse class="px-6 pb-5 text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed">
+                    <div x-show="active === 3" x-collapse class="px-6 pb-5 text-sm md:text-base leading-relaxed" :class="active === 3 ? 'text-blue-800/80 dark:text-slate-300' : 'text-slate-500 dark:text-slate-400'">
                         Kami menerima pembayaran non-tunai secara otomatis menggunakan QRIS/E-Wallet (Gopay, ShopeePay) serta pembayaran langsung secara tunai/cash di kasir outlet kami.
                     </div>
                 </div>

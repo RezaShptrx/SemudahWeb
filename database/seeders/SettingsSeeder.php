@@ -29,6 +29,12 @@ class SettingsSeeder extends Seeder
                 'description' => 'Alamat Perusahaan',
             ],
             [
+                'key' => 'company_email',
+                'value' => 'info@semudah.local',
+                'type' => 'string',
+                'description' => 'Email Kontak Perusahaan',
+            ],
+            [
                 'key' => 'whatsapp_number',
                 'value' => '6281234567890',
                 'type' => 'string',
