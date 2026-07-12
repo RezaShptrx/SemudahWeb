@@ -1,0 +1,189 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Plus, Edit, Trash2, X } from 'lucide-react';
+
+const Categories = () => {
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [formData, setFormData] = useState({ id: null, name: '', slug: '', description: '', icon: '' });
+    
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    const fetchCategories = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const res = await axios.get('/api/categories', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setCategories(res.data);
+        } catch (err) {
+            console.error('Error fetching categories:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleOpenModal = (category = null) => {
+        if (category) {
+            setFormData(category);
+        } else {
+            setFormData({ id: null, name: '', slug: '', description: '', icon: '' });
+        }
+        setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+            ...(name === 'name' && !prev.id ? { slug: value.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') } : {})
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const token = localStorage.getItem('token');
+            const headers = { Authorization: `Bearer ${token}` };
+            
+            if (formData.id) {
+                await axios.put(`/api/categories/${formData.id}`, formData, { headers });
+            } else {
+                await axios.post('/api/categories', formData, { headers });
+            }
+            fetchCategories();
+            handleCloseModal();
+        } catch (err) {
+            alert('Error saving category. Please check your inputs.');
+            console.error(err);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        if (!confirm('Are you sure you want to delete this category?')) return;
+        
+        try {
+            const token = localStorage.getItem('token');
+            await axios.delete(`/api/categories/${id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            fetchCategories();
+        } catch (err) {
+            alert('Error deleting category.');
+            console.error(err);
+        }
+    };
+
+    if (loading) return <div className="text-center py-10">Loading...</div>;
+
+    return (
+        <div className="space-y-6">
+            <div className="flex justify-between items-center">
+                <div>
+                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Categories</h2>
+                    <p className="text-slate-500 text-sm mt-1">Manage product categories</p>
+                </div>
+                <button 
+                    onClick={() => handleOpenModal()}
+                    className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-xl shadow-md transition-transform hover:-translate-y-0.5"
+                >
+                    <Plus size={18} /> Add Category
+                </button>
+            </div>
+
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+                        <thead className="bg-gray-50 dark:bg-slate-700/50 text-slate-700 dark:text-slate-200 uppercase text-xs font-semibold">
+                            <tr>
+                                <th className="px-6 py-4">Name</th>
+                                <th className="px-6 py-4">Slug</th>
+                                <th className="px-6 py-4">Description</th>
+                                <th className="px-6 py-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
+                            {categories.map(cat => (
+                                <tr key={cat.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">{cat.name}</td>
+                                    <td className="px-6 py-4"><span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 rounded-lg text-xs">{cat.slug}</span></td>
+                                    <td className="px-6 py-4 max-w-xs truncate">{cat.description || '-'}</td>
+                                    <td className="px-6 py-4 text-right">
+                                        <button onClick={() => handleOpenModal(cat)} className="text-blue-500 hover:text-blue-700 p-2">
+                                            <Edit size={18} />
+                                        </button>
+                                        <button onClick={() => handleDelete(cat.id)} className="text-red-500 hover:text-red-700 p-2">
+                                            <Trash2 size={18} />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                            {categories.length === 0 && (
+                                <tr>
+                                    <td colSpan="4" className="px-6 py-8 text-center text-slate-500">No categories found.</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {/* Modal */}
+            {modalOpen && (
+                <div className="fixed inset-0 bg-slate-900/50 z-50 flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-lg shadow-xl overflow-hidden">
+                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-slate-700">
+                            <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                                {formData.id ? 'Edit Category' : 'Add Category'}
+                            </h3>
+                            <button onClick={handleCloseModal} className="text-slate-400 hover:text-slate-600">
+                                <X size={24} />
+                            </button>
+                        </div>
+                        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
+                                <input 
+                                    type="text" name="name" value={formData.name} onChange={handleChange} required
+                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Slug</label>
+                                <input 
+                                    type="text" name="slug" value={formData.slug} onChange={handleChange} required
+                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                <textarea 
+                                    name="description" value={formData.description || ''} onChange={handleChange} rows="3"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                ></textarea>
+                            </div>
+                            <div className="pt-4 flex justify-end gap-3">
+                                <button type="button" onClick={handleCloseModal} className="px-5 py-2.5 rounded-xl text-slate-600 bg-slate-100 hover:bg-slate-200 font-medium transition">
+                                    Cancel
+                                </button>
+                                <button type="submit" className="px-5 py-2.5 rounded-xl text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 font-medium transition shadow-md">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Categories;
