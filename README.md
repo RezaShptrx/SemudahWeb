@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/username/repository/main/public/assets/semecha-logo.png" alt="SEMUDAH Logo" width="120" onerror="this.src='https://img.icons8.com/fluent/96/000000/print.png'"/>
+  <img src="https://github.com/RezaShptrx/SemudahWeb/blob/main/public/SEMUDAH-LOGO-3.png'"/>
   
   # 🚀 SEMUDAH (Sistem E-Pemesanan Mudah)
   
