@@ -25,16 +25,10 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
-
-# Markdown documentation (tidak perlu di repo)
 *.md
-
-# Agent / AI tool config folders
 /.agents/
 /.claude/
 /.gemini/
 /.impeccable/
-
-# Dev artifacts
 composer.phar
 /stubs/

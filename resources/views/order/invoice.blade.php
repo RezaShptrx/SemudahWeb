@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice {{ $order->order_number }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 </head>
 <body class="bg-gray-50 p-8 font-sans text-slate-800" onload="window.print()">
     <div class="max-w-3xl mx-auto bg-white p-10 shadow-sm border border-gray-100 rounded-xl">

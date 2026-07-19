@@ -93,20 +93,20 @@ const Users = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Users</h2>
-                    <p className="text-slate-500 text-sm mt-1">Manage system access and roles</p>
+                    <h2 className="text-2xl font-heading font-bold text-slate-800 dark:text-white">Users</h2>
+                    <p className="text-slate-500 font-sans text-sm mt-1">Manage system access and roles</p>
                 </div>
                 <button 
                     onClick={() => handleOpenModal()}
-                    className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-xl shadow-md transition-transform hover:-translate-y-0.5"
+                    className="flex items-center gap-2 bg-semudah-primary hover:bg-semudah-primary/90 text-white px-4 py-2 rounded-[8px] font-sans font-bold shadow-sm transition-transform hover:-translate-y-0.5"
                 >
                     <Plus size={18} /> Add User
                 </button>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
+            <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 overflow-hidden">
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300 font-sans">
                         <thead className="bg-gray-50 dark:bg-slate-700/50 text-slate-700 dark:text-slate-200 uppercase text-xs font-semibold">
                             <tr>
                                 <th className="px-6 py-4">Name</th>
@@ -119,18 +119,18 @@ const Users = () => {
                         <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
                             {users.map(user => (
                                 <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
-                                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">{user.name}</td>
+                                    <td className="px-6 py-4 font-heading font-bold text-slate-900 dark:text-white">{user.name}</td>
                                     <td className="px-6 py-4">
                                         <div className="text-slate-800 dark:text-slate-200">{user.email}</div>
                                         <div className="text-xs text-slate-500">{user.phone || 'No phone'}</div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${roleColors[user.role]}`}>
+                                        <span className={`px-2.5 py-1 rounded-[4px] text-xs font-bold font-sans ${roleColors[user.role]}`}>
                                             {user.role}
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${user.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'}`}>
+                                        <span className={`px-2.5 py-1 rounded-[4px] text-xs font-bold font-sans ${user.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'}`}>
                                             {user.is_active ? 'Active' : 'Inactive'}
                                         </span>
                                     </td>
@@ -152,9 +152,9 @@ const Users = () => {
             {/* Modal */}
             {modalOpen && (
                 <div className="fixed inset-0 bg-slate-900/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
-                    <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-lg shadow-xl overflow-hidden my-8">
-                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-slate-700">
-                            <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                    <div className="bg-white dark:bg-slate-800 rounded-[12px] border border-semudah-primary/10 font-sans w-full max-w-lg shadow-xl overflow-hidden my-8">
+                        <div className="flex items-center justify-between p-6 border-b border-semudah-primary/10 dark:border-slate-700">
+                            <h3 className="text-xl font-heading font-bold text-slate-800 dark:text-white">
                                 {formData.id ? 'Edit User' : 'Add User'}
                             </h3>
                             <button onClick={handleCloseModal} className="text-slate-400 hover:text-slate-600">
@@ -163,44 +163,44 @@ const Users = () => {
                         </div>
                         <form onSubmit={handleSubmit} className="p-6 space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Name</label>
                                 <input 
                                     type="text" name="name" value={formData.name} onChange={handleChange} required
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                    className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Email</label>
                                     <input 
                                         type="email" name="email" value={formData.email} onChange={handleChange} required
-                                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                        className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Phone</label>
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Phone</label>
                                     <input 
                                         type="text" name="phone" value={formData.phone || ''} onChange={handleChange}
-                                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                        className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                     />
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">
                                     Password {formData.id && <span className="text-xs text-gray-400 font-normal">(Leave blank to keep current)</span>}
                                 </label>
                                 <input 
                                     type="password" name="password" value={formData.password} onChange={handleChange} 
                                     required={!formData.id} minLength="8"
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                    className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Role</label>
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Role</label>
                                     <select 
                                         name="role" value={formData.role} onChange={handleChange}
-                                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition"
+                                        className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition"
                                     >
                                         <option value="customer">Customer</option>
                                         <option value="petugas">Petugas</option>
@@ -210,18 +210,18 @@ const Users = () => {
                                 <div className="flex items-center mt-6">
                                     <input 
                                         type="checkbox" name="is_active" checked={formData.is_active} onChange={handleChange}
-                                        className="w-5 h-5 rounded text-cyan-500 border-gray-300 focus:ring-cyan-500" 
+                                        className="w-5 h-5 rounded-[4px] text-semudah-primary border-gray-300 focus:ring-semudah-primary" 
                                         id="is_active"
                                     />
-                                    <label htmlFor="is_active" className="ml-2 text-sm font-medium text-slate-700 dark:text-slate-300">Active Account</label>
+                                    <label htmlFor="is_active" className="ml-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Active Account</label>
                                 </div>
                             </div>
                             
                             <div className="pt-4 flex justify-end gap-3">
-                                <button type="button" onClick={handleCloseModal} className="px-5 py-2.5 rounded-xl text-slate-600 bg-slate-100 hover:bg-slate-200 font-medium transition">
+                                <button type="button" onClick={handleCloseModal} className="px-5 py-2.5 rounded-[8px] text-slate-600 bg-slate-100 hover:bg-slate-200 font-sans font-bold transition">
                                     Cancel
                                 </button>
-                                <button type="submit" className="px-5 py-2.5 rounded-xl text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 font-medium transition shadow-md">
+                                <button type="submit" className="px-5 py-2.5 rounded-[8px] text-white bg-semudah-primary hover:bg-semudah-primary/90 font-sans font-bold transition shadow-sm">
                                     Save
                                 </button>
                             </div>

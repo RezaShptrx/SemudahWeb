@@ -88,20 +88,20 @@ const Categories = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Categories</h2>
-                    <p className="text-slate-500 text-sm mt-1">Manage product categories</p>
+                    <h2 className="text-2xl font-heading font-bold text-slate-800 dark:text-white">Categories</h2>
+                    <p className="text-slate-500 font-sans text-sm mt-1">Manage product categories</p>
                 </div>
                 <button 
                     onClick={() => handleOpenModal()}
-                    className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-xl shadow-md transition-transform hover:-translate-y-0.5"
+                    className="flex items-center gap-2 bg-semudah-primary hover:bg-semudah-primary/90 text-white px-4 py-2 rounded-[8px] font-sans font-bold shadow-sm transition-transform hover:-translate-y-0.5"
                 >
                     <Plus size={18} /> Add Category
                 </button>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
+            <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 overflow-hidden">
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300 font-sans">
                         <thead className="bg-gray-50 dark:bg-slate-700/50 text-slate-700 dark:text-slate-200 uppercase text-xs font-semibold">
                             <tr>
                                 <th className="px-6 py-4">Name</th>
@@ -113,8 +113,8 @@ const Categories = () => {
                         <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
                             {categories.map(cat => (
                                 <tr key={cat.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
-                                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">{cat.name}</td>
-                                    <td className="px-6 py-4"><span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 rounded-lg text-xs">{cat.slug}</span></td>
+                                    <td className="px-6 py-4 font-heading font-bold text-slate-900 dark:text-white">{cat.name}</td>
+                                    <td className="px-6 py-4"><span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 rounded-[4px] text-xs font-sans">{cat.slug}</span></td>
                                     <td className="px-6 py-4 max-w-xs truncate">{cat.description || '-'}</td>
                                     <td className="px-6 py-4 text-right">
                                         <button onClick={() => handleOpenModal(cat)} className="text-blue-500 hover:text-blue-700 p-2">
@@ -139,9 +139,9 @@ const Categories = () => {
             {/* Modal */}
             {modalOpen && (
                 <div className="fixed inset-0 bg-slate-900/50 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-lg shadow-xl overflow-hidden">
-                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-slate-700">
-                            <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                    <div className="bg-white dark:bg-slate-800 rounded-[12px] border border-semudah-primary/10 font-sans w-full max-w-lg shadow-xl overflow-hidden">
+                        <div className="flex items-center justify-between p-6 border-b border-semudah-primary/10 dark:border-slate-700">
+                            <h3 className="text-xl font-heading font-bold text-slate-800 dark:text-white">
                                 {formData.id ? 'Edit Category' : 'Add Category'}
                             </h3>
                             <button onClick={handleCloseModal} className="text-slate-400 hover:text-slate-600">
@@ -150,31 +150,31 @@ const Categories = () => {
                         </div>
                         <form onSubmit={handleSubmit} className="p-6 space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Name</label>
                                 <input 
                                     type="text" name="name" value={formData.name} onChange={handleChange} required
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                    className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Slug</label>
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Slug</label>
                                 <input 
                                     type="text" name="slug" value={formData.slug} onChange={handleChange} required
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                    className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Description</label>
                                 <textarea 
                                     name="description" value={formData.description || ''} onChange={handleChange} rows="3"
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none transition" 
+                                    className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none transition" 
                                 ></textarea>
                             </div>
                             <div className="pt-4 flex justify-end gap-3">
-                                <button type="button" onClick={handleCloseModal} className="px-5 py-2.5 rounded-xl text-slate-600 bg-slate-100 hover:bg-slate-200 font-medium transition">
+                                <button type="button" onClick={handleCloseModal} className="px-5 py-2.5 rounded-[8px] font-sans font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition">
                                     Cancel
                                 </button>
-                                <button type="submit" className="px-5 py-2.5 rounded-xl text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 font-medium transition shadow-md">
+                                <button type="submit" className="px-5 py-2.5 rounded-[8px] font-sans font-bold text-white bg-semudah-primary hover:bg-semudah-primary/90 transition shadow-sm">
                                     Save
                                 </button>
                             </div>

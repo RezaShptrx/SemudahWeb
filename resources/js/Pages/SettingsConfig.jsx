@@ -103,15 +103,15 @@ export default function SettingsConfig() {
 
     return (
         <div className="max-w-4xl mx-auto">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
-                <div className="px-6 py-5 border-b border-gray-100 dark:border-slate-700 bg-gray-50/50 dark:bg-slate-800/50">
-                    <h2 className="text-xl font-bold text-slate-800 dark:text-white">Pengaturan Website</h2>
-                    <p className="text-sm text-slate-500 mt-1">Kelola informasi kontak, alamat, dan konfigurasi sistem lainnya.</p>
+            <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 overflow-hidden">
+                <div className="px-6 py-5 border-b border-semudah-primary/10 dark:border-slate-700 bg-gray-50/50 dark:bg-slate-800/50">
+                    <h2 className="text-xl font-heading font-bold text-slate-800 dark:text-white">Pengaturan Website</h2>
+                    <p className="text-sm font-sans text-slate-500 mt-1">Kelola informasi kontak, alamat, dan konfigurasi sistem lainnya.</p>
                 </div>
                 
                 <form onSubmit={handleSubmit} className="p-6">
                     {message.text && (
-                        <div className={`mb-6 p-4 rounded-xl flex items-start ${
+                        <div className={`mb-6 p-4 rounded-[12px] font-sans font-bold flex items-start ${
                             message.type === 'success' 
                                 ? 'bg-green-50 text-green-700 border border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800' 
                                 : 'bg-red-50 text-red-700 border border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800'
@@ -124,10 +124,10 @@ export default function SettingsConfig() {
                     <div className="space-y-8">
                         {/* Informasi Umum */}
                         <div>
-                            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4 border-b border-gray-100 dark:border-slate-700 pb-2">Informasi Umum</h3>
+                            <h3 className="text-lg font-heading font-bold text-slate-800 dark:text-white mb-4 border-b border-semudah-primary/10 dark:border-slate-700 pb-2">Informasi Umum</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                         Nama Perusahaan / Bisnis
                                     </label>
                                     <div className="relative">
@@ -139,14 +139,14 @@ export default function SettingsConfig() {
                                             name="company_name"
                                             value={settings.company_name || ''}
                                             onChange={handleChange}
-                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
+                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
                                             placeholder="PT Semudah Teknologi"
                                         />
                                     </div>
                                 </div>
                                 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                         Prefix Nomor Pesanan
                                     </label>
                                     <div className="relative">
@@ -158,7 +158,7 @@ export default function SettingsConfig() {
                                             name="order_number_prefix"
                                             value={settings.order_number_prefix || ''}
                                             onChange={handleChange}
-                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
+                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
                                             placeholder="SMDH"
                                         />
                                     </div>
@@ -169,10 +169,10 @@ export default function SettingsConfig() {
 
                         {/* Kontak & Alamat */}
                         <div>
-                            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4 border-b border-gray-100 dark:border-slate-700 pb-2">Kontak & Alamat</h3>
+                            <h3 className="text-lg font-heading font-bold text-slate-800 dark:text-white mb-4 border-b border-semudah-primary/10 dark:border-slate-700 pb-2">Kontak & Alamat</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                         Nomor WhatsApp Admin
                                     </label>
                                     <div className="relative">
@@ -184,14 +184,14 @@ export default function SettingsConfig() {
                                             name="contact_whatsapp"
                                             value={settings.contact_whatsapp || ''}
                                             onChange={handleChange}
-                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
+                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
                                             placeholder="6281234567890"
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                         Email Kontak
                                     </label>
                                     <div className="relative">
@@ -203,7 +203,7 @@ export default function SettingsConfig() {
                                             name="contact_email"
                                             value={settings.contact_email || ''}
                                             onChange={handleChange}
-                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
+                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
                                             placeholder="admin@semudah.com"
                                         />
                                     </div>
@@ -211,7 +211,7 @@ export default function SettingsConfig() {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                     Alamat Lengkap
                                 </label>
                                 <div className="relative">
@@ -223,7 +223,7 @@ export default function SettingsConfig() {
                                         value={settings.company_address || ''}
                                         onChange={handleChange}
                                         rows="3"
-                                        className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
+                                        className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
                                         placeholder="Jl. Contoh No. 123, Kota, Provinsi"
                                     ></textarea>
                                 </div>
@@ -232,15 +232,15 @@ export default function SettingsConfig() {
 
                         {/* Metode Pembayaran (QRIS) */}
                         <div>
-                            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4 border-b border-gray-100 dark:border-slate-700 pb-2">Metode Pembayaran (QRIS)</h3>
+                            <h3 className="text-lg font-heading font-bold text-slate-800 dark:text-white mb-4 border-b border-semudah-primary/10 dark:border-slate-700 pb-2">Metode Pembayaran (QRIS)</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                         Gambar Barcode QRIS
                                     </label>
                                     <div className="flex items-center gap-4">
                                         {settings.payment_qris_image && (
-                                            <div className="w-16 h-16 rounded-xl border border-gray-200 overflow-hidden flex-shrink-0 bg-white">
+                                            <div className="w-16 h-16 rounded-[8px] border border-semudah-secondary/40 overflow-hidden flex-shrink-0 bg-white">
                                                 <img src={settings.payment_qris_image} alt="QRIS" className="w-full h-full object-cover" />
                                             </div>
                                         )}
@@ -253,7 +253,7 @@ export default function SettingsConfig() {
                                                 accept="image/*"
                                                 ref={fileInputRef}
                                                 onChange={handleFileChange}
-                                                className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
+                                                className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors file:mr-4 file:py-1 file:px-3 file:rounded-[4px] file:border-0 file:text-xs file:font-semibold file:bg-semudah-primary/10 file:text-semudah-primary hover:file:bg-semudah-primary/20"
                                             />
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@ export default function SettingsConfig() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                         Biaya Layanan/Admin QRIS (Rp)
                                     </label>
                                     <div className="relative">
@@ -273,7 +273,7 @@ export default function SettingsConfig() {
                                             name="payment_qris_fee"
                                             value={settings.payment_qris_fee || 0}
                                             onChange={handleChange}
-                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
+                                            className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors"
                                             placeholder="1000"
                                         />
                                     </div>
@@ -284,9 +284,9 @@ export default function SettingsConfig() {
 
                         {/* Integrasi & Pesan */}
                         <div>
-                            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4 border-b border-gray-100 dark:border-slate-700 pb-2">Integrasi Fonnte (WhatsApp)</h3>
+                            <h3 className="text-lg font-heading font-bold text-slate-800 dark:text-white mb-4 border-b border-semudah-primary/10 dark:border-slate-700 pb-2">Integrasi Fonnte (WhatsApp)</h3>
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-2">
                                     Template Pesan Pesanan Baru (Opsional)
                                 </label>
                                 <div className="relative">
@@ -298,7 +298,7 @@ export default function SettingsConfig() {
                                         value={settings.fonnte_template_order || ''}
                                         onChange={handleChange}
                                         rows="5"
-                                        className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 text-slate-900 rounded-xl focus:ring-cyan-500 focus:border-cyan-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors font-mono text-sm"
+                                        className="block w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-semudah-secondary/40 text-slate-900 rounded-[8px] focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary font-sans dark:bg-slate-900 dark:border-slate-700 dark:text-white transition-colors font-mono text-sm"
                                         placeholder="Halo {name}, Pesanan Anda {order_number} telah kami terima..."
                                     ></textarea>
                                 </div>
@@ -309,11 +309,11 @@ export default function SettingsConfig() {
                         </div>
                     </div>
 
-                    <div className="mt-8 pt-6 border-t border-gray-100 dark:border-slate-700 flex justify-end">
+                    <div className="mt-8 pt-6 border-t border-semudah-primary/10 dark:border-slate-700 flex justify-end">
                         <button
                             type="submit"
                             disabled={saving}
-                            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold flex items-center transition-all shadow-md shadow-cyan-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="bg-semudah-primary hover:bg-semudah-primary/90 text-white px-6 py-2.5 rounded-[8px] font-sans font-bold flex items-center transition-all shadow-sm shadow-semudah-primary/30 disabled:opacity-70 disabled:cursor-not-allowed"
                         >
                             {saving ? (
                                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>

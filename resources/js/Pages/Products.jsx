@@ -248,10 +248,10 @@ const Products = () => {
 
             {/* Modal */}
             {modalOpen && (
-                <div className="fixed inset-0 bg-slate-900/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
-                    <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-4xl shadow-xl overflow-hidden my-8 max-h-[90vh] flex flex-col">
-                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-800 shrink-0">
-                            <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                <div className="fixed inset-0 bg-slate-900/50 z-50 flex items-center justify-center p-4 overflow-y-auto font-sans">
+                    <div className="bg-white dark:bg-slate-800 rounded-[12px] w-full max-w-4xl shadow-xl overflow-hidden my-8 max-h-[90vh] flex flex-col border border-semudah-primary/10">
+                        <div className="flex items-center justify-between p-6 border-b border-semudah-primary/10 dark:border-slate-700 bg-white dark:bg-slate-800 shrink-0">
+                            <h3 className="text-xl font-heading font-bold text-slate-800 dark:text-white">
                                 {formData.id ? 'Edit Product' : 'Add Product'}
                             </h3>
                             <button onClick={() => setModalOpen(false)} className="text-slate-400 hover:text-slate-600">
@@ -263,115 +263,115 @@ const Products = () => {
                             <form id="productForm" onSubmit={handleSubmit} className="space-y-8">
                                 {/* Basic Info Section */}
                                 <div className="space-y-4">
-                                    <h4 className="font-semibold text-lg border-b pb-2 dark:border-slate-700 text-slate-800 dark:text-white">1. Basic Information</h4>
+                                    <h4 className="font-heading font-bold text-lg border-b pb-2 dark:border-slate-700 text-slate-800 dark:text-white border-semudah-primary/10">1. Basic Information</h4>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Product Name</label>
+                                            <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Product Name</label>
                                             <input type="text" name="name" value={formData.name} onChange={handleChange} required
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                                                className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none" />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Slug</label>
+                                            <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Slug</label>
                                             <input type="text" name="slug" value={formData.slug} onChange={handleChange} required
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                                                className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none" />
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Category</label>
+                                            <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Category</label>
                                             <select name="category_id" value={formData.category_id} onChange={handleChange} required
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none">
+                                                className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none">
                                                 <option value="">Select Category</option>
                                                 {categories.map(cat => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
                                             </select>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Base Price (Rp)</label>
+                                            <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Base Price (Rp)</label>
                                             <input type="number" name="base_price" value={formData.base_price} onChange={handleChange} required min="0"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                                                className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none" />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Unit (e.g. pcs, rim)</label>
+                                            <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Unit (e.g. pcs, rim)</label>
                                             <input type="text" name="unit" value={formData.unit} onChange={handleChange} required
-                                                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                                                className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none" />
                                         </div>
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                        <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Description</label>
                                         <textarea name="description" value={formData.description} onChange={handleChange} rows="2"
-                                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none" />
+                                            className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none" />
                                     </div>
                                     <div className="grid grid-cols-1 gap-4">
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Product Image</label>
+                                            <label className="block text-sm font-semibold text-semudah-primary dark:text-slate-300 mb-1">Product Image</label>
                                             <div className="flex items-center gap-4">
                                                 {formData.image_url && !formData.image && (
-                                                    <img src={formData.image_url} alt="Product" className="w-16 h-16 rounded-xl object-cover border border-gray-200" />
+                                                    <img src={formData.image_url} alt="Product" className="w-16 h-16 rounded-[8px] object-cover border border-gray-200" />
                                                 )}
                                                 {formData.image && (
-                                                    <div className="w-16 h-16 rounded-xl bg-cyan-100 flex items-center justify-center text-cyan-600 text-xs text-center border border-cyan-200">New Image</div>
+                                                    <div className="w-16 h-16 rounded-[8px] bg-semudah-secondary/20 flex items-center justify-center text-semudah-anchor text-xs text-center border border-semudah-secondary/30">New Image</div>
                                                 )}
                                                 <input type="file" name="image" accept="image/*" onChange={handleChange}
-                                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-2 focus:ring-cyan-500 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100" />
+                                                    className="w-full px-4 py-2.5 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary outline-none file:mr-4 file:py-2 file:px-4 file:rounded-[8px] file:border-0 file:text-sm file:font-bold file:bg-semudah-secondary/20 file:text-semudah-anchor hover:file:bg-semudah-secondary/30" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-6 pt-2">
                                         <div className="flex items-center">
                                             <input type="checkbox" name="is_active" id="prod_is_active" checked={formData.is_active} onChange={handleChange}
-                                                className="w-5 h-5 rounded text-cyan-500 border-gray-300 focus:ring-cyan-500" />
-                                            <label htmlFor="prod_is_active" className="ml-2 text-sm font-medium text-slate-700 dark:text-slate-300">Product is Active</label>
+                                                className="w-5 h-5 rounded text-semudah-secondary border-gray-300 focus:ring-semudah-secondary" />
+                                            <label htmlFor="prod_is_active" className="ml-2 text-sm font-bold text-slate-700 dark:text-slate-300">Product is Active</label>
                                         </div>
                                         <div className="flex items-center">
                                             <input type="checkbox" name="requires_file_upload" id="requires_file" checked={formData.requires_file_upload} onChange={handleChange}
-                                                className="w-5 h-5 rounded text-cyan-500 border-gray-300 focus:ring-cyan-500" />
-                                            <label htmlFor="requires_file" className="ml-2 text-sm font-medium text-slate-700 dark:text-slate-300">Requires File Upload</label>
+                                                className="w-5 h-5 rounded text-semudah-secondary border-gray-300 focus:ring-semudah-secondary" />
+                                            <label htmlFor="requires_file" className="ml-2 text-sm font-bold text-slate-700 dark:text-slate-300">Requires File Upload</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Specifications / Template Section */}
                                 <div className="space-y-4">
-                                    <div className="flex items-center justify-between border-b pb-2 dark:border-slate-700">
-                                        <h4 className="font-semibold text-lg text-slate-800 dark:text-white">2. Specifications & Variants</h4>
+                                    <div className="flex items-center justify-between border-b pb-2 border-semudah-primary/10 dark:border-slate-700">
+                                        <h4 className="font-heading font-bold text-lg text-slate-800 dark:text-white">2. Specifications & Variants</h4>
                                         <div className="flex gap-2">
-                                            <button type="button" onClick={() => handleApplyTemplate('print')} className="text-xs bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 flex items-center gap-1">
+                                            <button type="button" onClick={() => handleApplyTemplate('print')} className="text-xs font-bold font-sans bg-semudah-secondary/10 text-semudah-anchor dark:bg-indigo-900/30 dark:text-indigo-400 px-3 py-1.5 rounded-[8px] hover:bg-semudah-secondary/20 flex items-center gap-1">
                                                 <Copy size={14} /> Template Print
                                             </button>
-                                            <button type="button" onClick={() => handleApplyTemplate('custom')} className="text-xs bg-fuchsia-50 text-fuchsia-600 dark:bg-fuchsia-900/30 dark:text-fuchsia-400 px-3 py-1.5 rounded-lg font-medium hover:bg-fuchsia-100 flex items-center gap-1">
+                                            <button type="button" onClick={() => handleApplyTemplate('custom')} className="text-xs font-bold font-sans bg-semudah-secondary/10 text-semudah-anchor dark:bg-fuchsia-900/30 dark:text-fuchsia-400 px-3 py-1.5 rounded-[8px] hover:bg-semudah-secondary/20 flex items-center gap-1">
                                                 <Copy size={14} /> Template Custom
                                             </button>
                                         </div>
                                     </div>
                                     
-                                    <div className="bg-gray-50 dark:bg-slate-700/30 p-4 rounded-xl border border-gray-100 dark:border-slate-700 space-y-3">
+                                    <div className="bg-gray-50 dark:bg-slate-700/30 p-4 rounded-[12px] border border-semudah-primary/10 dark:border-slate-700 space-y-3">
                                         {specifications.length === 0 ? (
                                             <p className="text-sm text-slate-500 text-center py-4">No specifications defined. Click 'Add Row' or use a Template.</p>
                                         ) : (
                                             specifications.map((spec, index) => (
                                                 <div key={index} className="flex flex-col sm:flex-row gap-3 items-end">
                                                     <div className="flex-1 w-full">
-                                                        <label className="block text-xs font-medium text-slate-500 mb-1">Spec Name</label>
+                                                        <label className="block text-xs font-semibold text-slate-500 mb-1">Spec Name</label>
                                                         <input type="text" value={spec.spec_name} onChange={(e) => handleSpecChange(index, 'spec_name', e.target.value)} placeholder="e.g. Ukuran"
-                                                            className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 outline-none" />
+                                                            className="w-full px-3 py-2 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-1 focus:ring-semudah-primary outline-none" />
                                                     </div>
                                                     <div className="flex-1 w-full">
-                                                        <label className="block text-xs font-medium text-slate-500 mb-1">Spec Value</label>
+                                                        <label className="block text-xs font-semibold text-slate-500 mb-1">Spec Value</label>
                                                         <input type="text" value={spec.spec_value} onChange={(e) => handleSpecChange(index, 'spec_value', e.target.value)} placeholder="e.g. A4"
-                                                            className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 outline-none" />
+                                                            className="w-full px-3 py-2 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-1 focus:ring-semudah-primary outline-none" />
                                                     </div>
                                                     <div className="flex-1 w-full">
-                                                        <label className="block text-xs font-medium text-slate-500 mb-1">Additional Price (Rp)</label>
+                                                        <label className="block text-xs font-semibold text-slate-500 mb-1">Additional Price (Rp)</label>
                                                         <input type="number" value={spec.price_modifier} onChange={(e) => handleSpecChange(index, 'price_modifier', e.target.value)} placeholder="0"
-                                                            className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 outline-none" />
+                                                            className="w-full px-3 py-2 rounded-[8px] border border-semudah-secondary/40 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-1 focus:ring-semudah-primary outline-none" />
                                                     </div>
-                                                    <button type="button" onClick={() => handleRemoveSpec(index)} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg mb-0.5">
+                                                    <button type="button" onClick={() => handleRemoveSpec(index)} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-[8px] mb-0.5">
                                                         <MinusCircle size={20} />
                                                     </button>
                                                 </div>
                                             ))
                                         )}
-                                        <button type="button" onClick={handleAddSpec} className="flex items-center gap-1 text-cyan-600 text-sm font-medium hover:text-cyan-700 p-1">
+                                        <button type="button" onClick={handleAddSpec} className="flex items-center gap-1 text-semudah-primary text-sm font-bold hover:text-semudah-primary/90 p-1">
                                             <PlusCircle size={16} /> Add Row
                                         </button>
                                     </div>
@@ -379,11 +379,11 @@ const Products = () => {
                             </form>
                         </div>
                         
-                        <div className="p-6 border-t border-gray-100 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 shrink-0 flex justify-end gap-3 rounded-b-3xl">
-                            <button type="button" onClick={() => setModalOpen(false)} className="px-6 py-2.5 rounded-xl text-slate-600 bg-white border border-gray-200 hover:bg-slate-50 font-medium transition">
+                        <div className="p-6 border-t border-semudah-primary/10 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 shrink-0 flex justify-end gap-3 rounded-b-[12px]">
+                            <button type="button" onClick={() => setModalOpen(false)} className="px-6 py-2.5 rounded-[8px] font-sans text-slate-600 bg-white border border-gray-200 hover:bg-slate-50 font-bold transition">
                                 Cancel
                             </button>
-                            <button type="submit" form="productForm" className="px-6 py-2.5 rounded-xl text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 font-medium transition shadow-md shadow-cyan-500/20">
+                            <button type="submit" form="productForm" className="px-6 py-2.5 rounded-[8px] font-sans text-white bg-semudah-primary hover:bg-semudah-primary/90 font-bold transition shadow-sm">
                                 Save Product
                             </button>
                         </div>

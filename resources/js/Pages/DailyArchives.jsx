@@ -43,15 +43,15 @@ const DailyArchives = () => {
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-2xl font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                    <Calendar className="text-cyan-500" /> Arsip Harian
+                <h2 className="text-2xl font-heading font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                    <Calendar className="text-semudah-primary" /> Arsip Harian
                 </h2>
-                <p className="text-slate-500 text-sm mt-1">Rekapitulasi penjualan dan absensi petugas per hari.</p>
+                <p className="text-slate-500 font-sans text-sm mt-1">Rekapitulasi penjualan dan absensi petugas per hari.</p>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
+            <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 overflow-hidden">
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+                    <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300 font-sans">
                         <thead className="bg-gray-50 dark:bg-slate-700/50 text-slate-700 dark:text-slate-200 uppercase text-xs font-semibold">
                             <tr>
                                 <th className="px-6 py-4">Tanggal</th>
@@ -68,23 +68,23 @@ const DailyArchives = () => {
                                         className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
                                         onClick={() => toggleRow(arch.date)}
                                     >
-                                        <td className="px-6 py-4 font-bold text-slate-900 dark:text-white">
+                                        <td className="px-6 py-4 font-heading font-bold text-slate-900 dark:text-white">
                                             {arch.formatted_date}
                                         </td>
-                                        <td className="px-6 py-4 font-medium">
+                                        <td className="px-6 py-4 font-sans">
                                             {arch.total_orders} Pesanan
                                         </td>
-                                        <td className="px-6 py-4 font-bold text-cyan-600 dark:text-cyan-400">
+                                        <td className="px-6 py-4 font-sans font-bold text-semudah-primary">
                                             Rp {parseInt(arch.total_revenue).toLocaleString()}
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-2">
-                                                <Users size={16} className="text-indigo-500" /> 
+                                                <Users size={16} className="text-semudah-primary" /> 
                                                 <span>{arch.attendances.length} Orang</span>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 text-right">
-                                            <button className="text-slate-400 hover:text-cyan-500">
+                                            <button className="text-slate-400 hover:text-semudah-primary">
                                                 {expandedRow === arch.date ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </button>
                                         </td>
@@ -94,17 +94,17 @@ const DailyArchives = () => {
                                     {expandedRow === arch.date && (
                                         <tr className="bg-slate-50 dark:bg-slate-800/80">
                                             <td colSpan="5" className="px-6 py-4">
-                                                <div className="pl-4 border-l-2 border-cyan-500 my-2">
-                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-3 text-sm">Daftar Petugas Piket:</h4>
+                                                <div className="pl-4 border-l-2 border-semudah-primary my-2">
+                                                    <h4 className="font-heading font-bold text-slate-800 dark:text-slate-200 mb-3 text-sm">Daftar Petugas Piket:</h4>
                                                     {arch.attendances.length > 0 ? (
                                                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                                             {arch.attendances.map((att, idx) => (
-                                                                <div key={idx} className="bg-white dark:bg-slate-700 p-3 rounded-xl border border-gray-100 dark:border-slate-600 shadow-sm flex flex-col">
-                                                                    <span className="font-bold text-slate-800 dark:text-white">{att.name}</span>
-                                                                    <span className="text-xs text-slate-500 mb-2">{att.major}</span>
-                                                                    <div className="flex items-center justify-between text-xs mt-auto font-medium">
-                                                                        <span className="text-emerald-600 bg-emerald-50 px-2 py-1 rounded dark:bg-emerald-900/30 dark:text-emerald-400">In: {formatTime(att.check_in)}</span>
-                                                                        <span className="text-slate-600 bg-slate-100 px-2 py-1 rounded dark:bg-slate-600 dark:text-slate-300">Out: {formatTime(att.check_out)}</span>
+                                                                <div key={idx} className="bg-white dark:bg-slate-700 p-3 rounded-[12px] border border-semudah-primary/10 dark:border-slate-600 shadow-sm flex flex-col">
+                                                                    <span className="font-heading font-bold text-slate-800 dark:text-white">{att.name}</span>
+                                                                    <span className="text-xs text-slate-500 mb-2 font-sans">{att.major}</span>
+                                                                    <div className="flex items-center justify-between text-xs mt-auto font-sans font-bold">
+                                                                        <span className="text-emerald-600 bg-emerald-50 px-2 py-1 rounded-[4px] dark:bg-emerald-900/30 dark:text-emerald-400">In: {formatTime(att.check_in)}</span>
+                                                                        <span className="text-slate-600 bg-slate-100 px-2 py-1 rounded-[4px] dark:bg-slate-600 dark:text-slate-300">Out: {formatTime(att.check_out)}</span>
                                                                     </div>
                                                                 </div>
                                                             ))}

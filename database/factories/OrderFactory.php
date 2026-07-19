@@ -19,7 +19,7 @@ class OrderFactory extends Factory
             'customer_name' => $this->faker->name(),
             'customer_email' => $this->faker->safeEmail(),
             'customer_phone' => '628' . $this->faker->numerify('#########'),
-            'status' => 'antri',
+            'status' => \App\Enums\OrderStatus::MENUNGGU_ANTRIAN,
             'total_price' => $totalPrice,
             'discount_amount' => 0,
             'final_price' => $totalPrice,

@@ -6,6 +6,12 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-heading: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    
+    --color-semudah-primary: #1E648A;
+    --color-semudah-secondary: #63C0CE;
+    --color-semudah-accent: #75C8D1;
+    --color-semudah-anchor: #005555;
+    --color-semudah-bg: #FEFEFE;
 }

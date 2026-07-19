@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Masuk ke Panel Admin - SEMUDAH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&family=Source+Sans+3:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#93e6ef",
+                        "surface-variant": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "primary-container": "#1e648a",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-fixed-dim": "#81d4dd",
+                        "on-surface-variant": "#40484e",
+                        "primary-fixed": "#c8e6ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004c6d",
+                        "on-secondary-fixed": "#001f24",
+                        "surface-tint": "#1e648a",
+                        "outline": "#71787f",
+                        "on-secondary-container": "#006d79",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#78d4e2",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "tertiary-container": "#006971",
+                        "tertiary": "#004f55",
+                        "outline-variant": "#c0c7cf",
+                        "on-secondary-fixed-variant": "#004f57",
+                        "on-primary-container": "#b2deff",
+                        "surface-dim": "#dadada",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary-fixed": "#9df0f9",
+                        "secondary": "#006874",
+                        "on-tertiary-fixed-variant": "#004f55",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#001e2e",
+                        "secondary-container": "#92eefc",
+                        "on-tertiary-fixed": "#002023",
+                        "on-background": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9f9",
+                        "primary-fixed-dim": "#91cdf8",
+                        "primary": "#004c6d",
+                        "surface": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed": "#96f1ff",
+                        "inverse-primary": "#91cdf8",
+                        "inverse-on-surface": "#f0f1f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "section-padding": "80px",
+                        "asymmetric-offset": "64px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["\"Source Sans 3\""],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["\"Source Sans 3\""]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.75", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md h-screen w-screen overflow-hidden flex flex-col md:flex-row">
+<!-- Left Panel (Brand/Atmosphere) -->
+<div class="hidden md:flex md:w-[40%] bg-tertiary relative flex-col justify-between p-gutter overflow-hidden">
+<!-- Decorative Shapes -->
+<div aria-hidden="true" class="absolute top-[-20%] left-[-10%] w-[120%] h-[120%] z-0 pointer-events-none opacity-20">
+<svg class="w-full h-full fill-primary-container" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,0 L100,0 L50,100 Z"></path>
+</svg>
+</div>
+<div aria-hidden="true" class="absolute bottom-[-10%] right-[-20%] w-[80%] h-[80%] z-0 pointer-events-none opacity-30">
+<svg class="w-full h-full fill-primary-container" preserveaspectratio="none" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="50"></circle>
+</svg>
+</div>
+<div class="relative z-10 flex-grow flex flex-col justify-center">
+<h1 class="font-display-lg text-display-lg text-on-tertiary mb-6 tracking-tight">SEMUDAH</h1>
+<p class="font-body-lg text-body-lg text-on-tertiary opacity-90 max-w-sm">
+                Kelola pesanan dan layanan dengan mudah.
+            </p>
+</div>
+<div class="relative z-10 text-on-tertiary opacity-70 font-body-md text-sm">
+            © 2024 SEMUDAH Printing & Merchandise
+        </div>
+</div>
+<!-- Right Panel (Login Form) -->
+<div class="w-full md:w-[60%] bg-[#FEFEFE] flex flex-col justify-center p-gutter md:px-[120px] lg:px-[180px] h-full overflow-y-auto">
+<!-- Mobile Header (Visible only on mobile) -->
+<div class="md:hidden mb-12 text-center">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-container tracking-tight">SEMUDAH</h1>
+</div>
+<div class="w-full max-w-md mx-auto">
+<div class="mb-10">
+<h2 class="font-headline-md text-headline-md text-primary-container mb-2">Masuk ke Panel Admin</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Silakan masukkan kredensial Anda untuk melanjutkan.</p>
+</div>
+<!-- Error Banner (Demonstration State) -->
+<div class="mb-8 bg-error-container/30 border-l-[3px] border-error p-4 rounded-r-lg flex items-start" role="alert">
+<span class="material-symbols-outlined text-error mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">error</span>
+<div>
+<h3 class="font-label-bold text-label-bold text-error mb-1">Login Gagal</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Email atau password yang Anda masukkan salah. Silakan coba lagi.</p>
+</div>
+</div>
+<!-- Login Form -->
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block font-label-bold text-label-bold text-primary-container mb-2" for="email">Alamat Email</label>
+<input class="w-full bg-[#FEFEFE] border border-[#63C0CE] rounded-lg px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="email" name="email" placeholder="admin@semudah.com" required="" type="email"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label-bold text-label-bold text-primary-container" for="password">Password</label>
+<a class="font-label-bold text-sm text-primary-container hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Lupa Password?</a>
+</div>
+<div class="relative">
+<input class="w-full bg-[#FEFEFE] border border-[#63C0CE] rounded-lg px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary-container text-on-primary font-label-bold text-label-bold rounded-lg py-4 px-6 hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container flex justify-center items-center" type="submit">
+                        Masuk
+                        <span class="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</body></html>

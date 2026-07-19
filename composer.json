@@ -15,6 +15,7 @@
         "livewire/livewire": "^3.5",
         "midtrans/midtrans-php": "^2.6",
         "spatie/laravel-medialibrary": "^11.23",
+        "spatie/laravel-permission": "^8.3",
         "tymon/jwt-auth": "*"
     },
     "require-dev": {

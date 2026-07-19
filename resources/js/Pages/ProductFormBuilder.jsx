@@ -153,18 +153,18 @@ const ProductFormBuilder = () => {
                 
                 {field.type === 'header' && (
                     <div className="mb-2">
-                        <h2 className="text-xl font-bold text-slate-800 dark:text-white">{field.label}</h2>
-                        {field.description && <p className="text-slate-500 text-sm mt-1">{field.description}</p>}
+                        <h2 className="text-xl font-heading font-bold text-slate-800 dark:text-white">{field.label}</h2>
+                        {field.description && <p className="text-slate-500 font-sans text-sm mt-1">{field.description}</p>}
                     </div>
                 )}
                 {field.type === 'text' && <input type="text" disabled className="w-full md:w-1/2 px-4 py-2 border-b border-gray-300 dark:border-slate-600 bg-transparent opacity-60" placeholder="Teks jawaban singkat" />}
-                {field.type === 'textarea' && <textarea disabled className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-transparent opacity-60" rows="2" placeholder="Teks jawaban panjang" />}
+                {field.type === 'textarea' && <textarea disabled className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-[8px] bg-transparent opacity-60" rows="2" placeholder="Teks jawaban panjang" />}
                 {field.type === 'number' && <input type="number" disabled className="w-full md:w-1/3 px-4 py-2 border-b border-gray-300 dark:border-slate-600 bg-transparent opacity-60" placeholder="Angka" />}
                 {field.type === 'date' && <input type="date" disabled className="w-full md:w-1/3 px-4 py-2 border-b border-gray-300 dark:border-slate-600 bg-transparent opacity-60" />}
                 {field.type === 'color' && <input type="color" disabled className="w-12 h-12 rounded cursor-not-allowed opacity-60" />}
                 
                 {field.type === 'select' && (
-                    <select disabled className="w-full md:w-1/2 px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-transparent opacity-60">
+                    <select disabled className="w-full md:w-1/2 px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-[8px] bg-transparent opacity-60">
                         <option>Pilih salah satu</option>
                         {field.options?.map((opt, i) => <option key={i}>{opt.label}</option>)}
                     </select>
@@ -190,8 +190,8 @@ const ProductFormBuilder = () => {
                     </div>
                 )}
                 {field.type === 'file' && (
-                    <div className="w-full md:w-1/2 p-4 border border-gray-300 dark:border-slate-600 rounded-lg flex items-center justify-between opacity-60">
-                        <span className="text-slate-400 text-sm">Tambahkan file ({field.accepted_types})</span>
+                    <div className="w-full md:w-1/2 p-4 border border-gray-300 dark:border-slate-600 rounded-[8px] flex items-center justify-between opacity-60">
+                        <span className="text-slate-400 font-sans text-sm">Tambahkan file ({field.accepted_types})</span>
                         <UploadCloud className="text-blue-500 w-5 h-5" />
                     </div>
                 )}
@@ -205,23 +205,23 @@ const ProductFormBuilder = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pb-20 pt-4">
             {/* Header Sticky */}
-            <div className="sticky top-0 z-30 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-sm px-6 py-4 flex justify-between items-center max-w-5xl mx-auto rounded-3xl mb-8">
+            <div className="sticky top-0 z-30 bg-white dark:bg-slate-800 border border-semudah-primary/10 shadow-[0_4px_12px_rgba(0,0,0,0.03)] px-6 py-4 flex justify-between items-center max-w-5xl mx-auto rounded-[12px] mb-8 font-sans">
                 <div className="flex items-center gap-4">
-                    <button onClick={() => navigate('/admin/products')} className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white bg-slate-100 dark:bg-slate-700 rounded-full transition-colors">
+                    <button onClick={() => navigate('/admin/products')} className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white bg-slate-100 dark:bg-slate-700 rounded-[8px] transition-colors">
                         <ArrowLeft size={20} />
                     </button>
                     <div>
-                        <h2 className="text-lg font-bold text-slate-800 dark:text-white line-clamp-1">{product.name}</h2>
-                        <p className="text-slate-400 text-xs">Form Builder WYSIWYG</p>
+                        <h2 className="text-lg font-heading font-bold text-slate-800 dark:text-white line-clamp-1">{product.name}</h2>
+                        <p className="text-slate-400 font-sans text-xs">Form Builder WYSIWYG</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3">
                     <div className="relative">
-                        <button onClick={() => setShowTemplateMenu(!showTemplateMenu)} className="text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors">
+                        <button onClick={() => setShowTemplateMenu(!showTemplateMenu)} className="text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 px-4 py-2 rounded-[8px] font-sans text-sm font-bold flex items-center gap-2 transition-colors">
                             <List size={16} /> Template
                         </button>
                         {showTemplateMenu && (
-                            <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-gray-100 dark:border-slate-700 overflow-hidden z-50">
+                            <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-[12px] shadow-xl border border-semudah-primary/10 overflow-hidden z-50">
                                 {[
                                     { label: 'Jasa Print', slug: 'jasa-print' },
                                     { label: 'Jasa Fotocopy', slug: 'jasa-fotocopy' },
@@ -231,14 +231,14 @@ const ProductFormBuilder = () => {
                                     { label: 'Custom E-Money', slug: 'custom-emoney' },
                                     { label: 'Gantungan Kunci', slug: 'custom-gantungan-kunci' },
                                 ].map(tpl => (
-                                    <button key={tpl.slug} onClick={() => { loadTemplate(tpl.slug); setShowTemplateMenu(false); }} className="w-full text-left px-4 py-2.5 text-sm hover:bg-cyan-50 dark:hover:bg-slate-700 hover:text-cyan-600 dark:hover:text-white border-b border-gray-50 dark:border-slate-700 last:border-0">
+                                    <button key={tpl.slug} onClick={() => { loadTemplate(tpl.slug); setShowTemplateMenu(false); }} className="w-full text-left px-4 py-2.5 text-sm font-sans hover:bg-semudah-secondary/10 dark:hover:bg-slate-700 hover:text-semudah-primary dark:hover:text-white border-b border-semudah-primary/10 dark:border-slate-700 last:border-0">
                                         {tpl.label}
                                     </button>
                                 ))}
                             </div>
                         )}
                     </div>
-                    <button onClick={handleSave} disabled={saving} className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg font-semibold flex items-center gap-2 transition-colors shadow-md disabled:opacity-50 text-sm">
+                    <button onClick={handleSave} disabled={saving} className="bg-semudah-primary hover:bg-semudah-primary/90 text-white px-5 py-2 rounded-[8px] font-sans font-bold flex items-center gap-2 transition-colors shadow-sm disabled:opacity-50 text-sm">
                         <Save size={16} /> {saving ? 'Menyimpan...' : 'Simpan'}
                     </button>
                 </div>
@@ -249,17 +249,17 @@ const ProductFormBuilder = () => {
                 
                 <div className="flex-1 space-y-4">
                     {/* Form Header */}
-                    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border-t-8 border-cyan-500 p-8 mb-6 relative group overflow-hidden">
-                        <h1 className="text-3xl font-bold text-slate-800 dark:text-white mb-2 outline-none">{product.name}</h1>
-                        <p className="text-slate-500 dark:text-slate-400 outline-none">{product.description || 'Deskripsi formulir pesanan produk ini.'}</p>
+                    <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 border-t-[8px] border-t-semudah-primary p-8 mb-6 relative group overflow-hidden">
+                        <h1 className="text-3xl font-heading font-bold text-slate-800 dark:text-white mb-2 outline-none">{product.name}</h1>
+                        <p className="text-slate-500 font-sans dark:text-slate-400 outline-none">{product.description || 'Deskripsi formulir pesanan produk ini.'}</p>
                     </div>
 
                     {/* Form Fields */}
                     {schema.length === 0 && (
-                        <div className="text-center py-16 bg-white dark:bg-slate-800 rounded-2xl border border-dashed border-gray-300 dark:border-slate-600">
+                        <div className="text-center py-16 bg-white dark:bg-slate-800 rounded-[12px] border border-dashed border-gray-300 dark:border-slate-600">
                             <List className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                            <h3 className="text-lg font-bold text-slate-700 dark:text-white">Form Masih Kosong</h3>
-                            <p className="text-slate-500 text-sm">Gunakan tombol + di sebelah kanan untuk menambahkan pertanyaan.</p>
+                            <h3 className="text-lg font-heading font-bold text-slate-700 dark:text-white">Form Masih Kosong</h3>
+                            <p className="text-slate-500 font-sans text-sm">Gunakan tombol + di sebelah kanan untuk menambahkan pertanyaan.</p>
                         </div>
                     )}
                     
@@ -268,7 +268,7 @@ const ProductFormBuilder = () => {
                         
                         if (!isActive) {
                             return (
-                                <div key={field.id} onClick={() => setActiveFieldId(field.id)} className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-slate-700 cursor-pointer relative group transition-all">
+                                <div key={field.id} onClick={() => setActiveFieldId(field.id)} className="bg-white dark:bg-slate-800 p-6 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-transparent hover:border-gray-200 dark:hover:border-slate-700 cursor-pointer relative group transition-all">
                                     <div className="absolute top-2 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                         <div className="w-6 h-1 bg-gray-300 dark:bg-slate-600 rounded-full"></div>
                                     </div>
@@ -279,16 +279,16 @@ const ProductFormBuilder = () => {
 
                         // ACTIVE FIELD (EDIT MODE)
                         return (
-                            <div key={field.id} className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border-l-4 border-cyan-500 relative transition-all z-10 my-6 transform scale-[1.02]">
+                            <div key={field.id} className="bg-white dark:bg-slate-800 p-6 rounded-[12px] shadow-[0_8px_24px_rgba(0,0,0,0.05)] border-l-[4px] border-semudah-primary relative transition-all z-10 my-6 transform scale-[1.02]">
                                 
                                 <div className="flex flex-col md:flex-row gap-4 mb-4">
                                     {/* Label Editor */}
                                     <div className="flex-1">
                                         <input type="text" value={field.label} onChange={(e) => updateField(index, { label: e.target.value })} 
-                                            className="w-full text-lg bg-gray-50 dark:bg-slate-900 border-b-2 border-gray-300 focus:border-cyan-500 dark:border-slate-600 dark:focus:border-cyan-400 px-3 py-2 font-medium text-slate-800 dark:text-white outline-none transition-colors" placeholder="Pertanyaan / Label" autoFocus />
+                                            className="w-full text-lg bg-gray-50 dark:bg-slate-900 border-b-2 border-gray-300 focus:border-semudah-primary dark:border-slate-600 px-3 py-2 font-sans font-bold text-slate-800 dark:text-white outline-none transition-colors" placeholder="Pertanyaan / Label" autoFocus />
                                         {field.type === 'header' && (
                                             <input type="text" value={field.description || ''} onChange={(e) => updateField(index, { description: e.target.value })} 
-                                                className="w-full mt-2 text-sm bg-gray-50 dark:bg-slate-900 border-b border-gray-300 focus:border-cyan-500 dark:border-slate-600 px-3 py-1.5 text-slate-600 dark:text-slate-400 outline-none transition-colors" placeholder="Deskripsi opsional..." />
+                                                className="w-full mt-2 text-sm bg-gray-50 dark:bg-slate-900 border-b border-gray-300 focus:border-semudah-primary dark:border-slate-600 px-3 py-1.5 text-slate-600 dark:text-slate-400 outline-none transition-colors" placeholder="Deskripsi opsional..." />
                                         )}
                                     </div>
                                     {/* Type Selector Display */}
@@ -311,7 +311,7 @@ const ProductFormBuilder = () => {
                                                     newOpts[optIdx].label = e.target.value;
                                                     newOpts[optIdx].value = e.target.value;
                                                     updateField(index, { options: newOpts });
-                                                }} className="flex-1 max-w-[200px] border-b border-transparent focus:border-cyan-500 bg-transparent hover:border-gray-300 outline-none py-1 text-slate-700 dark:text-slate-200" placeholder="Opsi" />
+                                                }} className="flex-1 max-w-[200px] border-b border-transparent focus:border-semudah-primary bg-transparent hover:border-gray-300 outline-none py-1 text-slate-700 dark:text-slate-200" placeholder="Opsi" />
                                                 
                                                 <div className="flex items-center gap-1 opacity-50 focus-within:opacity-100 hover:opacity-100 transition-opacity">
                                                     <span className="text-xs font-semibold text-gray-500">+Rp</span>
@@ -319,7 +319,7 @@ const ProductFormBuilder = () => {
                                                         const newOpts = [...field.options];
                                                         newOpts[optIdx].price_modifier = Number(e.target.value) || 0;
                                                         updateField(index, { options: newOpts });
-                                                    }} className="w-20 border-b border-gray-300 focus:border-cyan-500 bg-transparent outline-none py-1 text-slate-700 dark:text-slate-200 text-sm" placeholder="Harga..." />
+                                                    }} className="w-20 border-b border-gray-300 focus:border-semudah-primary bg-transparent outline-none py-1 text-slate-700 dark:text-slate-200 text-sm" placeholder="Harga..." />
                                                 </div>
 
                                                 {field.options.length > 1 && (
@@ -340,7 +340,7 @@ const ProductFormBuilder = () => {
                                             <button onClick={() => {
                                                 const newOpts = [...(field.options || []), { label: `Opsi ${field.options?.length + 1 || 1}`, value: `Opsi ${field.options?.length + 1 || 1}`, price_modifier: 0 }];
                                                 updateField(index, { options: newOpts });
-                                            }} className="text-sm font-semibold text-gray-500 hover:text-cyan-600 transition-colors border-b border-transparent py-1">
+                                            }} className="text-sm font-semibold text-gray-500 hover:text-semudah-primary transition-colors border-b border-transparent py-1">
                                                 Tambahkan opsi
                                             </button>
                                         </div>
@@ -352,18 +352,18 @@ const ProductFormBuilder = () => {
                                     <div className="mt-4 mb-6 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl flex flex-wrap gap-4 items-end">
                                         <div className="w-full">
                                             <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Nama Variabel (Internal ID)</label>
-                                            <input type="text" value={field.name} onChange={(e) => updateField(index, { name: e.target.value })} className="w-full max-w-[200px] bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm font-mono text-slate-600 dark:text-slate-400 outline-none focus:ring-2 focus:ring-cyan-500" />
+                                            <input type="text" value={field.name} onChange={(e) => updateField(index, { name: e.target.value })} className="w-full max-w-[200px] bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm font-mono text-slate-600 dark:text-slate-400 outline-none focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary" />
                                         </div>
                                         {field.type === 'number' && (
                                             <div>
                                                 <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Nilai Minimum</label>
-                                                <input type="number" value={field.min ?? ''} onChange={(e) => updateField(index, { min: e.target.value })} className="w-32 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-cyan-500" />
+                                                <input type="number" value={field.min ?? ''} onChange={(e) => updateField(index, { min: e.target.value })} className="w-32 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary" />
                                             </div>
                                         )}
                                         {field.type === 'file' && (
                                             <div>
                                                 <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Ekstensi Diterima</label>
-                                                <input type="text" value={field.accepted_types ?? ''} onChange={(e) => updateField(index, { accepted_types: e.target.value })} className="w-48 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-cyan-500 placeholder-slate-400" placeholder=".png,.jpg,.pdf" />
+                                                <input type="text" value={field.accepted_types ?? ''} onChange={(e) => updateField(index, { accepted_types: e.target.value })} className="w-48 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-1 focus:ring-semudah-primary focus:border-semudah-primary placeholder-slate-400" placeholder=".png,.jpg,.pdf" />
                                             </div>
                                         )}
                                     </div>
@@ -392,7 +392,7 @@ const ProductFormBuilder = () => {
                                             <label className="flex items-center cursor-pointer">
                                                 <div className="relative">
                                                     <input type="checkbox" className="sr-only" checked={field.required} onChange={(e) => updateField(index, { required: e.target.checked })} />
-                                                    <div className={`block w-10 h-6 rounded-full transition-colors ${field.required ? 'bg-cyan-500' : 'bg-gray-300 dark:bg-slate-600'}`}></div>
+                                                    <div className={`block w-10 h-6 rounded-full transition-colors ${field.required ? 'bg-semudah-primary' : 'bg-gray-300 dark:bg-slate-600'}`}></div>
                                                     <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${field.required ? 'transform translate-x-4' : ''}`}></div>
                                                 </div>
                                                 <span className="ml-3 text-sm font-semibold text-slate-600 dark:text-slate-300">Wajib Diisi</span>
@@ -407,12 +407,12 @@ const ProductFormBuilder = () => {
                 </div>
 
                 {/* Floating Add Menu (Sidebar Style) */}
-                <div className="w-16 hidden md:flex flex-col gap-2 sticky top-32 h-fit bg-white dark:bg-slate-800 p-2 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 items-center py-4">
-                    <button onClick={() => setShowAddMenu(!showAddMenu)} className="w-10 h-10 bg-cyan-600 hover:bg-cyan-700 text-white rounded-full flex items-center justify-center transition-transform hover:scale-105 mb-2 shadow-md">
+                <div className="w-16 hidden md:flex flex-col gap-2 sticky top-32 h-fit bg-white dark:bg-slate-800 p-2 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 items-center py-4">
+                    <button onClick={() => setShowAddMenu(!showAddMenu)} className="w-10 h-10 bg-semudah-primary hover:bg-semudah-primary/90 text-white rounded-full flex items-center justify-center transition-transform hover:scale-105 mb-2 shadow-sm">
                         <Plus size={20} />
                     </button>
                     {showAddMenu && fieldTypes.map((fType) => (
-                        <button key={fType.type} onClick={() => handleAddField(fType.default)} className="w-10 h-10 flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-cyan-600 dark:hover:text-cyan-400 rounded-full transition-colors relative group">
+                        <button key={fType.type} onClick={() => handleAddField(fType.default)} className="w-10 h-10 flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-semudah-primary dark:hover:text-semudah-accent rounded-full transition-colors relative group">
                             <fType.icon size={20} />
                             {/* Tooltip */}
                             <div className="absolute left-full ml-3 px-2 py-1 bg-slate-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50">
@@ -425,10 +425,10 @@ const ProductFormBuilder = () => {
                 {/* Mobile Floating Add Menu */}
                 <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-3 md:hidden">
                     {showAddMenu && (
-                        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-700 p-2 w-64 grid grid-cols-2 gap-1 animate-in fade-in slide-in-from-bottom-5">
+                        <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-2xl border border-semudah-primary/10 p-2 w-64 grid grid-cols-2 gap-1 animate-in fade-in slide-in-from-bottom-5">
                             {fieldTypes.map((fType) => (
-                                <button key={fType.type} onClick={() => handleAddField(fType.default)} className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors gap-2 group">
-                                    <div className="text-slate-500 group-hover:text-cyan-500 transition-colors">
+                                <button key={fType.type} onClick={() => handleAddField(fType.default)} className="flex flex-col items-center justify-center p-3 rounded-[8px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors gap-2 group">
+                                    <div className="text-slate-500 group-hover:text-semudah-primary transition-colors">
                                         <fType.icon size={20} />
                                     </div>
                                     <span className="text-[10px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">{fType.label}</span>
@@ -436,7 +436,7 @@ const ProductFormBuilder = () => {
                             ))}
                         </div>
                     )}
-                    <button onClick={() => setShowAddMenu(!showAddMenu)} className="w-14 h-14 bg-cyan-600 hover:bg-cyan-700 text-white rounded-full shadow-lg shadow-cyan-500/30 flex items-center justify-center transition-transform hover:scale-105">
+                    <button onClick={() => setShowAddMenu(!showAddMenu)} className="w-14 h-14 bg-semudah-primary hover:bg-semudah-primary/90 text-white rounded-full shadow-lg shadow-semudah-primary/30 flex items-center justify-center transition-transform hover:scale-105">
                         {showAddMenu ? <X size={24} /> : <Plus size={24} />}
                     </button>
                 </div>

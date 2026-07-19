@@ -57,22 +57,22 @@ const Dashboard = () => {
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-2xl font-bold text-slate-800 dark:text-white">
+                <h2 className="text-2xl font-heading font-bold text-slate-800 dark:text-white">
                     {isAdmin ? 'Dashboard Admin' : 'Dashboard Petugas'}
                 </h2>
-                <p className="text-slate-500 text-sm mt-1">Selamat datang kembali, {user?.name}</p>
+                <p className="text-slate-500 font-sans text-sm mt-1">Selamat datang kembali, {user?.name}</p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {statCards.map((card, idx) => (
-                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-slate-700 flex items-center">
+                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-[12px] p-6 shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 flex items-center">
                         <div className={`p-4 rounded-2xl ${card.bg} ${card.color} mr-4`}>
                             <card.icon size={24} />
                         </div>
                         <div>
-                            <div className="text-sm font-medium text-slate-500 dark:text-slate-400">{card.title}</div>
-                            <div className="text-2xl font-bold text-slate-800 dark:text-white mt-1">{card.value}</div>
+                            <div className="text-sm font-sans font-medium text-slate-500 dark:text-slate-400">{card.title}</div>
+                            <div className="text-2xl font-heading font-bold text-semudah-primary dark:text-semudah-accent mt-1">{card.value}</div>
                         </div>
                     </div>
                 ))}
@@ -82,8 +82,8 @@ const Dashboard = () => {
                 
                 {/* Sales Chart (HANYA UNTUK ADMIN) */}
                 {isAdmin && (
-                    <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700 p-6 lg:col-span-2">
-                        <h3 className="font-bold text-slate-800 dark:text-white mb-6">Tren Pendapatan (7 Hari Terakhir)</h3>
+                    <div className="bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 p-6 lg:col-span-2">
+                        <h3 className="font-heading font-bold text-slate-800 dark:text-white mb-6">Tren Pendapatan (7 Hari Terakhir)</h3>
                         <div className="h-72 w-full">
                             <ResponsiveContainer width="100%" height="100%">
                                 <LineChart data={salesChart}>
@@ -103,13 +103,13 @@ const Dashboard = () => {
                 )}
 
                 {/* Latest Orders Table (Untuk Admin ini jadi Sidebar Compact, untuk Petugas jadi Full Widget) */}
-                <div className={`bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden ${isAdmin ? 'lg:col-span-1' : ''}`}>
-                    <div className="px-6 py-5 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center bg-gray-50 dark:bg-slate-700/50">
-                        <h3 className="font-bold text-slate-800 dark:text-white">
+                <div className={`bg-white dark:bg-slate-800 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-semudah-primary/10 dark:border-slate-700 overflow-hidden ${isAdmin ? 'lg:col-span-1' : ''}`}>
+                    <div className="px-6 py-5 border-b border-semudah-primary/10 dark:border-slate-700 flex justify-between items-center bg-gray-50 dark:bg-slate-700/50">
+                        <h3 className="font-heading font-bold text-slate-800 dark:text-white">
                             {isAdmin ? 'Transaksi Terbaru' : '⚡ Orderan Masuk'}
                         </h3>
                         {!isAdmin && (
-                            <Link to="/admin/orders" className="text-sm font-medium text-cyan-600 hover:text-cyan-700 flex items-center gap-1">
+                            <Link to="/admin/orders" className="text-sm font-sans font-medium text-semudah-primary hover:text-semudah-primary/90 flex items-center gap-1">
                                 Lihat Semua <ExternalLink size={14} />
                             </Link>
                         )}
@@ -119,26 +119,26 @@ const Dashboard = () => {
                         {latestOrders.map(order => (
                             <div key={order.id} className="p-5 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors flex justify-between items-center">
                                 <div className="flex-1">
-                                    <div className="font-bold text-slate-900 dark:text-white text-base">{order.customer_name}</div>
+                                    <div className="font-heading font-bold text-slate-900 dark:text-white text-base">{order.customer_name}</div>
                                     <div className="flex items-center gap-2 mt-1">
-                                        <span className="text-xs font-mono bg-slate-100 dark:bg-slate-600 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">
+                                        <span className="text-xs font-sans bg-slate-100 dark:bg-slate-600 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-[4px]">
                                             {order.order_number}
                                         </span>
-                                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
-                                            order.status === 'selesai' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700 animate-pulse'
+                                        <span className={`px-2 py-0.5 rounded-[4px] text-[10px] font-sans font-bold uppercase ${
+                                            order.status === 'selesai' ? 'bg-semudah-secondary/20 text-semudah-anchor' : 'bg-yellow-100 text-yellow-700'
                                         }`}>
                                             {order.status.replace('_', ' ')}
                                         </span>
                                     </div>
                                 </div>
                                 <div className="text-right flex flex-col items-end gap-2">
-                                    <div className="font-bold text-cyan-600 dark:text-cyan-400">
+                                    <div className="font-heading font-bold text-semudah-primary dark:text-semudah-accent">
                                         Rp {parseInt(order.final_price).toLocaleString()}
                                     </div>
                                     {!isAdmin && order.status !== 'selesai' && (
                                         <button 
                                             onClick={() => handleQuickProcess(order.order_number)}
-                                            className="text-xs bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-sm transition-transform hover:-translate-y-0.5"
+                                            className="text-xs font-sans bg-semudah-primary hover:bg-semudah-primary/90 text-white px-3 py-1.5 rounded-[8px] flex items-center gap-1 shadow-sm transition-transform hover:-translate-y-0.5"
                                         >
                                             <CheckCircle size={14} /> Proses
                                         </button>
